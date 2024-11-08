@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';   
 import { Link } from 'react-router-dom';
 
 
@@ -25,7 +25,7 @@ function App() {
   return (
     <div>
    
-    <Link to="/">Inicio</Link>
+    <Link to="/Inicio">Inicio</Link>
     <h1>¡Bienvenido a la Tienda!</h1>
     {error && <p>Error: {error}</p>} {}
     <h2>Categorías:</h2>

@@ -4,6 +4,9 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; //Bro
                                                                            //Routes organiza las rutas dentro de una estructura
 import Inicio from './start';
 import ShowCategories from './Category/showCategories';
+import CreateCategories from './Category/createCategories';
+import DeleteCategories from './Category/deleteCategories';
+import UpdateCategories from './Category/updateCategories';
 
 function App() { //Creamos esta función que es el componente principal de nuestra aplicación, todo el contenido que le mostraremos al usuario está definido aquí
   return (  //Aquí empieza el contenido que vamos a mostrar
@@ -11,8 +14,12 @@ function App() { //Creamos esta función que es el componente principal de nuest
     <Router> 
         <div> 
             <Routes>
+                <Route path="/" element={<Inicio />}/> 
                 <Route path="/Inicio" element={<Inicio />}/> 
-                <Route path="/allCategories" element={<ShowCategories />} />
+                <Route path="/ShowCategories" element={<ShowCategories />} />
+                <Route path="/CreateCategories" element={<CreateCategories />} />
+                <Route path="/UpdateCategories" element={<UpdateCategories />} />
+                <Route path="/DeleteCategories" element={<DeleteCategories />} />
             </Routes>
         </div>
     </Router>

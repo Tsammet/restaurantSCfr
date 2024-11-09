@@ -6,8 +6,10 @@ function Inicio() {
     <div>
       <h1>Bienvenido a la Tienda</h1>
       <p>
-        Para ver las categorías de productos, haz click{' '} {/* el {' '} lo uso para insertar un espacio en blanco ya que de lo contrario se vería haz CLICKAQUI todo pegado */}
-        <Link to="/allCategories">aquí</Link>
+        <Link to="/ShowCategories">Show Categories</Link>
+        <Link to="/CreateCategories">create Categories</Link>
+        <Link to="/UpdateCategories">Update Categoriers</Link>
+        <Link to="/DeleteCategories">Delete Categoriers</Link>
       </p>
     </div>
   );

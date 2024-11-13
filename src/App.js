@@ -7,6 +7,10 @@ import ShowCategories from './Category/showCategories';
 import CreateCategories from './Category/createCategories';
 import DeleteCategories from './Category/deleteCategories';
 import UpdateCategories from './Category/updateCategories';
+import CreateProducts from './Product/createProducts';
+import ShowProducts from './Product/showProducts';
+import UpdateProducts from './Product/updateProducts';
+import DeleteProducts from './Product/deleteProducts';
 
 function App() { //Creamos esta función que es el componente principal de nuestra aplicación, todo el contenido que le mostraremos al usuario está definido aquí
   return (  //Aquí empieza el contenido que vamos a mostrar
@@ -20,6 +24,11 @@ function App() { //Creamos esta función que es el componente principal de nuest
                 <Route path="/CreateCategories" element={<CreateCategories />} />
                 <Route path="/UpdateCategories" element={<UpdateCategories />} />
                 <Route path="/DeleteCategories" element={<DeleteCategories />} />
+                <Route path="/CreateProducts" element={<CreateProducts />} />
+                <Route path="/ShowProducts" element={<ShowProducts />} />
+                <Route path="/UpdateProducts" element={<UpdateProducts />} />
+                <Route path="/DeleteProducts" element={<DeleteProducts />} />
+                
             </Routes>
         </div>
     </Router>

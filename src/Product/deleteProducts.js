@@ -1,20 +1,20 @@
 import React, {useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 
-function DeleteCategories(){
+function DeleteProducts(){
 
-    const [categoryId, setCategoryId] = useState();
+    const [productId, setProductId] = useState();
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        fetch("http://127.0.0.1:8000/products/deleteCategory",{
+        fetch("http://127.0.0.1:8000/products/deleteProduct",{
             method: 'DELETE',
             headers : {
                 'Content-Type' : 'application/json',
             },
-            body: JSON.stringify({id: categoryId})
+            body: JSON.stringify({id: productId})
         })
         .then(response => {
             if(!response.ok){
@@ -25,8 +25,8 @@ function DeleteCategories(){
             }
         })
         .then(data => {
-            alert('Category was deleted successfully!')
-            navigate("/DeleteCategories")
+            alert('Product was deleted successfully!')
+            navigate("/DeleteProducts")
         })
         .catch(error => {
             setError(error.message)
@@ -39,26 +39,27 @@ function DeleteCategories(){
             <Link to="/Inicio">Inicio</Link>
             <Link to="/ShowCategories">Show Categories</Link>
             <Link to="/UpdateCategories">Update Categories</Link>
+            <Link to="/DeleteCategories">Delete Categories</Link>
             <Link to="/CreateCategories">Create Categories</Link>
             <Link to="/CreateProducts">Create Products</Link>
             <Link to="/showProducts">Show Products</Link>
             <Link to="/UpdateProducts">Update Products</Link>
-            <Link to="/DeleteProducts">Delete Products</Link>
 
-            <h2>Delete a Category</h2>
-            <form id="deleteCategory" onSubmit={handleSubmit}>
-                <label htmlFor="categoryId">Category Id: </label>
+
+            <h2>Delete a Product</h2>
+            <form id="deleteProduct" onSubmit={handleSubmit}>
+                <label htmlFor="productId">Product Id: </label>
                 <input type="number"
-                id="categoryId"
-                name="categoryId"
-                value={categoryId}
-                onChange={(e) => setCategoryId(e.target.value)}
+                id="productId"
+                name="productId"
+                value={productId}
+                onChange={(e) => setProductId(e.target.value)}
                 required
                 />
-                <button type="submit">Delete Category</button>
+                <button type="submit">Delete Product</button>
             </form>
         </div>
     );
 };
 
-export default DeleteCategories;
+export default DeleteProducts;

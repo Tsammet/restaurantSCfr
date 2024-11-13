@@ -43,6 +43,12 @@ function UpdateCategories(){
             <Link to="/ShowCategories">Show Categories</Link>
             <Link to="/CreateCategories">Create Categories</Link>
             <Link to="/DeleteCategories">Delete Categories</Link>
+            <Link to="/CreateProducts">Create Products</Link>
+            <Link to="/showProducts">Show Products</Link>
+            <Link to="/UpdateProducts">Update Products</Link>
+            <Link to="/DeleteProducts">Delete Products</Link>
+
+
             <h2>Update Categories</h2>
             <form id="updateCategory" onSubmit={handleSubmit}>
 

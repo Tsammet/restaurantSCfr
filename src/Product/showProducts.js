@@ -30,14 +30,14 @@ function ShowProducts() {
   return (
     <div>
     
-      <Link to="/Inicio">Inicio</Link>
+      {/* <Link to="/Inicio">Inicio</Link>
       <Link to="/createCategories">Create Categories</Link>
       <Link to="/showCategories">Show Categories</Link>
       <Link to="/UpdateCategories">Update Categories</Link>
       <Link to="/deleteCategories">Delete Categories</Link>
       <Link to="/CreateProducts">Create Products</Link>
       <Link to="/UpdateProducts">Update Products</Link>
-      <Link to="/DeleteProducts">Delete Products</Link>
+      <Link to="/DeleteProducts">Delete Products</Link> */}
 
       <h1>Welcome to the store!</h1>
       {error && <p>Error: {error}</p>}

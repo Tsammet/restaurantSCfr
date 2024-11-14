@@ -36,14 +36,14 @@ function DeleteCategories(){
     return(
         <div>
             {error && <p>Error: {error}</p>}
-            <Link to="/Inicio">Inicio</Link>
+            {/* <Link to="/Inicio">Inicio</Link>
             <Link to="/ShowCategories">Show Categories</Link>
             <Link to="/UpdateCategories">Update Categories</Link>
             <Link to="/CreateCategories">Create Categories</Link>
             <Link to="/CreateProducts">Create Products</Link>
             <Link to="/showProducts">Show Products</Link>
             <Link to="/UpdateProducts">Update Products</Link>
-            <Link to="/DeleteProducts">Delete Products</Link>
+            <Link to="/DeleteProducts">Delete Products</Link> */}
 
             <h2>Delete a Category</h2>
             <form id="deleteCategory" onSubmit={handleSubmit}>

@@ -43,14 +43,14 @@ function UpdateProducts(){
 
     return (
         <div>
-             <Link to="/Inicio">Inicio</Link>
+             {/* <Link to="/Inicio">Inicio</Link>
             <Link to="/ShowCategories">Show Categories</Link>
             <Link to="/CreateCategories">Create Categories</Link>
             <Link to="/DeleteCategories">Delete Categories</Link>
             <Link to="/UpdateCategories">Update Categories</Link>
             <Link to="/CreateProducts">Create Products</Link>
             <Link to="/showProducts">Show Products</Link>
-            <Link to="/DeleteProducts">Delete Products</Link>
+            <Link to="/DeleteProducts">Delete Products</Link> */}
 
             <h2>Update Products</h2>
             <form id="updateProduct" onSubmit={handleSubmit}>

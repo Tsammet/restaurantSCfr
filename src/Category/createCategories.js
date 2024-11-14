@@ -39,32 +39,32 @@ function CreateCategories(){
 return (
     <div>
         {error && <p>Error: {error}</p>}
-        <Link to="/Inicio">Inicio</Link>
+        {/* <Link to="/Inicio">Inicio</Link>
         <Link to="/ShowCategories">Show Categories</Link>
         <Link to="/UpdateCategories">Update Categories</Link>
         <Link to="/DeleteCategories">Delete Categories</Link>
         <Link to="/CreateProducts">Create Products</Link>
         <Link to="/showProducts">Show Products</Link>
         <Link to="/UpdateProducts">Update Products</Link>
-        <Link to="/DeleteProducts">Delete Products</Link>
+        <Link to="/DeleteProducts">Delete Products</Link> */}
         <h2>Create a new Category</h2>
         <form id="createCategory" onSubmit={handleSubmit}>
         
             <label htmlFor="categoryName">Category Name: </label>
             <input type="text"
-            id="categoryName" 
-            name="categoryName" 
-            value={categoryName}
-            onChange={(e) => setCategoryName(e.target.value)}
-            required
+                id="categoryName" 
+                name="categoryName" 
+                value={categoryName}
+                onChange={(e) => setCategoryName(e.target.value)}
+                required
             />
 
             <label htmlFor="categoryImage">Category Image: </label>
             <input
-            type="file"
-            id="categoryImage"
-            name="categoryImage"
-            onChange={(e) => setCategoryImage(e.target.files[0])}
+                type="file"
+                id="categoryImage"
+                name="categoryImage"
+                onChange={(e) => setCategoryImage(e.target.files[0])}
             />
 
             <button type="submit">Create Category</button>

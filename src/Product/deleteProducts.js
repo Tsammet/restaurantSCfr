@@ -6,6 +6,7 @@ function DeleteProducts(){
     const [productId, setProductId] = useState();
     const [error, setError] = useState(null);
     const navigate = useNavigate();
+    const token = localStorage.getItem('token');
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -13,6 +14,8 @@ function DeleteProducts(){
             method: 'DELETE',
             headers : {
                 'Content-Type' : 'application/json',
+                'Authorization' : `Token ${token}`,
+                  
             },
             body: JSON.stringify({id: productId})
         })

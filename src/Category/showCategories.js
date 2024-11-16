@@ -12,10 +12,14 @@ function ShowCategories() {
                                                                           // error guardará mensajes de error
                                                                           //setError nos permitirá cambiar su valor, al comienzo está en null, que significa que no hay errores jsjs
 
+
+
   useEffect(() => { // Se ejecuta una función hook cuando el componente showCategories se carga por primera vez, en este caso será para cargar las categorias del backend
     fetch('http://127.0.0.1:8000/products/showCategories',{// Con el fetch estoy consumiendo una api de mi backend, hago una solicitud http para    obtener los datos de  las categorias
-    
-      method : 'GET'}) 
+      method : 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },}) 
       .then(response => { 
         if (!response.ok) { //Si la respuesta del servidor que recibe no es correcta enviamos un error
           throw new Error('Error to get the Response');

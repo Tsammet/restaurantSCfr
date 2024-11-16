@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate, useLocation } from 'react-router-dom'; //BrowserRouter o Router es el componente que nos ayuda a manejar rutas en nuestra app
                                                                            //Route es el camino que el usuario va a utilizar
                                                                            //Routes organiza las rutas dentro de una estructura
-import Inicio from './start';
+import Inicio from './home';
 import Navbar from './navbar';
 import ShowCategories from './Category/showCategories';
 import CreateCategories from './Category/createCategories';
@@ -14,6 +14,7 @@ import UpdateProducts from './Product/updateProducts';
 import DeleteProducts from './Product/deleteProducts';
 import Login from './user/login';
 import Register from './user/register';
+import PrivateRoute from './PrivateRoutes';
 
 function App() { //Creamos esta función que es el componente principal de nuestra aplicación, todo el contenido que le mostraremos al usuario está definido aquí
   const role = localStorage.getItem('role')
@@ -42,14 +43,54 @@ function App() { //Creamos esta función que es el componente principal de nuest
                   <Route path="/Inicio" element={<Inicio />}/> 
                   <Route path="/ShowCategories" element={<ShowCategories />} />
                   <Route path="/ShowProducts" element={<ShowProducts />} />   
-                  <Route path="/CreateCategories" element={<CreateCategories />} />
-                  <Route path="/UpdateCategories" element={<UpdateCategories />} />
-                  <Route path="/DeleteCategories" element={<DeleteCategories />} />
-                  <Route path="/CreateProducts" element={<CreateProducts />} />
-                  <Route path="/UpdateProducts" element={<UpdateProducts />} />
-                  <Route path="/DeleteProducts" element={<DeleteProducts />} />
 
-            </Routes>
+
+                  <Route 
+                    path="/createCategories" 
+                    element={
+                      <PrivateRoute requiredRole="admin">
+                      <CreateCategories />
+                      </PrivateRoute>
+                    }
+                  />            
+                  <Route 
+                    path="/UpdateCategories"
+                    element={
+                    <PrivateRoute requiredRole="admin">
+                    <UpdateCategories />
+
+                  </PrivateRoute>}
+                  />
+                  <Route 
+                    path="/DeleteCategories"
+                    element={
+                    <PrivateRoute requiredRole="admin">
+                    <DeleteCategories />
+                  </PrivateRoute>}
+                  />
+                  <Route 
+                    path="/CreateProducts"
+                    element={
+                    <PrivateRoute requiredRole="admin">
+                    <CreateProducts />
+                  </PrivateRoute>}
+                  />
+                  <Route 
+                    path="/UpdateProducts"
+                    element={
+                    <PrivateRoute requiredRole="admin">
+                    <UpdateProducts />
+                  </PrivateRoute>}
+                  />
+                  <Route 
+                    path="/DeleteProducts"
+                    element={
+                    <PrivateRoute requiredRole="admin">
+                    <DeleteProducts />
+                  </PrivateRoute>}
+                  />
+
+              </Routes>
         </div>
    );
 }

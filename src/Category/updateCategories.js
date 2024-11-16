@@ -8,6 +8,7 @@ function UpdateCategories(){
     const [categoryImage, setCategoryImage] = useState(null)
     const [error, setError] = useState(null);
     const navigate = useNavigate();
+    const token = localStorage.getItem('token');
 
     const handleSubmit = (event) =>{
         event.preventDefault();
@@ -19,7 +20,10 @@ function UpdateCategories(){
 
         fetch("http://127.0.0.1:8000/products/updateCategory",{
             method: 'PUT',
-            body: formData
+            body: formData,
+            headers:{
+                'Authorization' : `Token ${token}`,
+              }  
         })
 
         .then(response => {

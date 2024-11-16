@@ -7,6 +7,7 @@ function CreateCategories(){
     const [categoryImage, setCategoryImage] = useState(null)
     const [error, setError] = useState(null); 
     const navigate = useNavigate();
+    const token = localStorage.getItem('token');
 
     const handleSubmit = (event) =>{   //handleSubmit se usa generalmente para envios de formulario
         event.preventDefault();
@@ -17,11 +18,19 @@ function CreateCategories(){
 
         fetch("http://127.0.0.1:8000/products/createCategory",{
         method: 'POST',
-        body: formData //Usamos formData en lugar de Json para poder manejar archivos File
+        body: formData, //Usamos formData en lugar de Json para poder manejar archivos File
+        headers:{
+            'Authorization' : `Bearer ${token}`,
+          }  
     })
     
     .then(response => {
         if(!response.ok){
+            if(response.status ===403){
+
+                alert('No tienes permisos para estar aquí')
+                navigate("/Inicio")
+            }
             throw new Error("Error to get the response")
         }
         return response.json();

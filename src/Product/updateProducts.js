@@ -10,6 +10,7 @@ function UpdateProducts(){
     const [productImage, setProductImage] = useState(null)
     const [error, setError] = useState(null);
     const navigate = useNavigate();
+    const token = localStorage.getItem('token');
 
     const handleSubmit = (event) =>{
         event.preventDefault();
@@ -23,7 +24,10 @@ function UpdateProducts(){
 
         fetch("http://127.0.0.1:8000/products/updateProduct",{
             method: 'PUT',
-            body: formData
+            body: formData,
+            headers:{
+                'Authorization' : `Token ${token}`,
+              }  
         })
 
         .then(response => {
@@ -43,14 +47,6 @@ function UpdateProducts(){
 
     return (
         <div>
-             {/* <Link to="/Inicio">Inicio</Link>
-            <Link to="/ShowCategories">Show Categories</Link>
-            <Link to="/CreateCategories">Create Categories</Link>
-            <Link to="/DeleteCategories">Delete Categories</Link>
-            <Link to="/UpdateCategories">Update Categories</Link>
-            <Link to="/CreateProducts">Create Products</Link>
-            <Link to="/showProducts">Show Products</Link>
-            <Link to="/DeleteProducts">Delete Products</Link> */}
 
             <h2>Update Products</h2>
             <form id="updateProduct" onSubmit={handleSubmit}>

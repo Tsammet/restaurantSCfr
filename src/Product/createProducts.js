@@ -10,6 +10,7 @@ function CreateProducts(){
     const [price, setPrice] = useState("")
     const [error, setError] = useState(null); 
     const navigate = useNavigate();
+    const token = localStorage.getItem('token');
 
     const handleSubmit = (event) =>{   //handleSubmit se usa generalmente para envios de formulario
         event.preventDefault();
@@ -23,7 +24,10 @@ function CreateProducts(){
 
         fetch("http://127.0.0.1:8000/products/createProduct",{
         method: 'POST',
-        body: formData //Usamos formData en lugar de Json para poder manejar archivos File
+        body: formData, //Usamos formData en lugar de Json para poder manejar archivos File
+        headers:{
+            'Authorization' : `Token ${token}`,
+          }  
     })
     
     .then(response => {
@@ -45,14 +49,6 @@ function CreateProducts(){
 return (
     <div>
         {error && <p>Error: {error}</p>}
-        {/* <Link to="/Inicio">Inicio</Link>
-        <Link to="/CreateCategories">Create Categories</Link>
-        <Link to="/ShowCategories">Show Categories</Link>
-        <Link to="/UpdateCategories">Update Categories</Link>
-        <Link to="/DeleteCategories">Delete Categories</Link>
-        <Link to="/showProducts">Show Products</Link>
-        <Link to="/UpdateProducts">Update Products</Link>
-        <Link to="/DeleteProducts">Delete Products</Link> */}
 
 
         <h2>Create a new Product</h2>

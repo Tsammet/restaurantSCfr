@@ -10,7 +10,8 @@ function ShowProducts() {
   useEffect(() => {
     fetch('http://127.0.0.1:8000/products/showProducts',{
     
-      method : 'GET'}) 
+      method : 'GET',
+ }) 
       .then(response => { 
         if (!response.ok) {
           throw new Error('Error to get the Response');
@@ -30,14 +31,6 @@ function ShowProducts() {
   return (
     <div>
     
-      {/* <Link to="/Inicio">Inicio</Link>
-      <Link to="/createCategories">Create Categories</Link>
-      <Link to="/showCategories">Show Categories</Link>
-      <Link to="/UpdateCategories">Update Categories</Link>
-      <Link to="/deleteCategories">Delete Categories</Link>
-      <Link to="/CreateProducts">Create Products</Link>
-      <Link to="/UpdateProducts">Update Products</Link>
-      <Link to="/DeleteProducts">Delete Products</Link> */}
 
       <h1>Welcome to the store!</h1>
       {error && <p>Error: {error}</p>}

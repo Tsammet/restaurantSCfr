@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
+import ReviewList from "./reviewList";
 
 function Reviews(){
 
@@ -27,7 +28,7 @@ function Reviews(){
     
     .then(response => {
         if(!response.ok){
-            throw new Error("Error to get the response")
+            throw new Error("Error creating the review")
         }
         return response.json();
         
@@ -45,6 +46,7 @@ return (
     <div>
         {error && <p>Error: {error}</p>}
 
+        <ReviewList/>
 
         <h2>Create a new Review</h2>
         <form id="createReview" onSubmit={handleSubmit}>
@@ -70,6 +72,8 @@ return (
             <button type="submit">Create Review</button>
 
         </form>
+
+
     </div>
 );
 }

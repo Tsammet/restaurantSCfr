@@ -30,7 +30,6 @@ function ShowProducts() {
 
   return (
     <div>
-    
 
       <h1>Welcome to the store!</h1>
       {error && <p>Error: {error}</p>}

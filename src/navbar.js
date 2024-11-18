@@ -12,6 +12,7 @@ function Navbar() {
         {/* Rutas comunes para todos los usuarios */}
         <Link to="/ShowCategories">Show Categories</Link>
         <Link to="/ShowProducts">Show Products</Link>
+        <Link to="/Review">Reviews</Link>
 
         {/* Rutas solo para admin */}
         {role === 'admin' && (

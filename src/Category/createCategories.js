@@ -20,7 +20,7 @@ function CreateCategories(){
         method: 'POST',
         body: formData, //Usamos formData en lugar de Json para poder manejar archivos File
         headers:{
-            'Authorization' : `Bearer ${token}`,
+            'Authorization' : `Token ${token}`,
           }  
     })
     

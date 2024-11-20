@@ -52,9 +52,11 @@ function Login(){
             {error && <p>Error: {error}</p>}    
             <Link to="/Register">Register</Link>
 
+            <h2>Login</h2>
+
+
             <form id="login" onSubmit={handleSubmit}>
 
-                <h2>Login</h2>
                 <label htmlFor="username">Username: </label>
                 <input
                     type="text"

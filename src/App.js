@@ -19,6 +19,7 @@ import Reviews from './Reviews/review';
 import ShoppingCart from './Cart/ShoppingCart';
 
 function App() { //Creamos esta función que es el componente principal de nuestra aplicación, todo el contenido que le mostraremos al usuario está definido aquí
+  
   const role = localStorage.getItem('role')
 
   const location = useLocation(); // Usamos useLocation para obtener la ruta actual
@@ -26,9 +27,7 @@ function App() { //Creamos esta función que es el componente principal de nuest
   const showNavbar = location.pathname !== "/Login" && location.pathname !== "/Register";
 
 
-  if(!role){
-    return <Navigate to ="/login" />
-  }
+
 
   return (  //Aquí empieza el contenido que vamos a mostrar
     //Router s el contenedor principal que permite el funcionamiento de las rutas

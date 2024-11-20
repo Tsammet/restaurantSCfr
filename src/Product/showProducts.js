@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 
 function ShowProducts() {
   const [products, setProducts] = useState([]); 
-
   const [error, setError] = useState(null);
+  const token = localStorage.getItem('token');
 
   useEffect(() => {
     fetch('http://127.0.0.1:8000/products/showProducts',{
@@ -27,6 +27,30 @@ function ShowProducts() {
         setError(error.message);
       });
   }, []);
+
+  const addToCart = productId => {
+    fetch('http://127.0.0.1:8000/cart/addCart',{
+      method : 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization' : `Token ${token}`,
+      },
+      body: JSON.stringify({product_id: productId, quantity:1}),
+    })
+    .then(response => {
+      if (!response.ok){
+        throw new Error('error adding the product')
+      }else{
+        return response.json();
+      }
+    })
+    .then(data => {
+      alert(data.message);
+    })
+    .catch(error => {
+      setError(error.message)
+    })
+  }
 
   return (
     <div>
@@ -51,6 +75,7 @@ function ShowProducts() {
 
                         </div>
                       )}
+                  <button onClick={() => addToCart(product.id)}>Add to Cart</button>
 
                 </li>
             

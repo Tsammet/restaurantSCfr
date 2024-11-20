@@ -16,6 +16,7 @@ import Login from './user/login';
 import Register from './user/register';
 import PrivateRoute from './PrivateRoutes';
 import Reviews from './Reviews/review';
+import ShoppingCart from './Cart/ShoppingCart';
 
 function App() { //Creamos esta función que es el componente principal de nuestra aplicación, todo el contenido que le mostraremos al usuario está definido aquí
   const role = localStorage.getItem('role')
@@ -45,6 +46,7 @@ function App() { //Creamos esta función que es el componente principal de nuest
                   <Route path="/ShowCategories" element={<ShowCategories />} />
                   <Route path="/ShowProducts" element={<ShowProducts />} />   
                   <Route path="/Review" element={<Reviews />} />   
+                  <Route path="/ShoppingCart" element={<ShoppingCart />} />   
 
 
                   <Route 

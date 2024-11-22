@@ -53,6 +53,8 @@ function Login(){
             <Link to="/Register">Register</Link>
 
             <h2>Login</h2>
+            <h2>HOLAAAAAAAAAAAAAAAAAAAAAA</h2>
+
 
 
             <form id="login" onSubmit={handleSubmit}>

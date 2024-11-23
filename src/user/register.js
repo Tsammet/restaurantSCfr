@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
+import "./register.css";
 
 function Register(){
 
@@ -37,47 +38,49 @@ function Register(){
     };
     
     return (
-        <div>
-
-            {error && <p>Error: {error}</p>}    
-            <Link to="/Login">Login</Link>
-
-            <h2>Register</h2>
-
-            <form id="register" onSubmit={handleSubmit}>
-                <label htmlFor="username">Username: </label>
-                <input
-                    id="username"
-                    type="text"
-                    placeholder="Username"
-                    value={username}
-                    name="username"
-                    onChange={(e) => setUsername(e.target.value)}
-                />
-
-                <label htmlFor="email">Email: </label>
-                <input
-                    id="email"
-                    type="Email"
-                    value={email}
-                    name="email"
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-
-                <label htmlFor="password">Password: </label>
-                <input
-                    id="password"
-                    type="password"
-                    value={password}
-                    name="password"
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-
-                <button type="submit">Register</button>
-            </form>
+        <div className="register-page">
+            <nav className="navbar">
+                <h1 className="navbar-title">RESTAURANTE SC</h1>
+                <Link to="/Login" className="navbar-link">Login</Link>
+            </nav>
     
+            <div className="register-container">
+                {error && <p className="error-message">Error: {error}</p>}
+    
+                <form id="register" onSubmit={handleSubmit} className="register-form">
+                    <h2 className="register-title">Register</h2>
+                    <label htmlFor="username" className="register-label">Username:</label>
+                    <input
+                        type="text"
+                        id="username"
+                        placeholder="Username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        className="register-input"
+                    />
+                    <label htmlFor="email" className="register-label">Email:</label>
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="register-input"
+                    />
+                    <label htmlFor="password" className="register-label">Password:</label>
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        className="register-input"
+                    />
+                    <button type="submit" className="register-button">Register</button>
+                </form>
+            </div>
         </div>
-    )
+    );
 }
 
 export default Register;

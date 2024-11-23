@@ -1,5 +1,6 @@
 import React, {useState} from "react";
-import { Form, Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import "./login.css";
 
 function Login(){
 
@@ -47,41 +48,40 @@ function Login(){
     }
 
     return (
-        <div>
-
-            {error && <p>Error: {error}</p>}    
-            <Link to="/Register">Register</Link>
-
-            <h2>Login</h2>
-            <h2>HOLAAAAAAAAAAAAAAAAAAAAAA</h2>
-
-
-
-            <form id="login" onSubmit={handleSubmit}>
-
-                <label htmlFor="username">Username: </label>
-                <input
-                    type="text"
-                    id="username"
-                    placeholder="Username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
+        <div className="login-page">
+            <nav className="navbar">
+                <h1 className="navbar-title">RESTAURANTE SC</h1>
+                <Link to="/Register" className="navbar-link">Register</Link>
+            </nav>
+    
+            <div className="login-container">
+                {error && <p className="error-message">Error: {error}</p>}
+    
+                <form id="login" onSubmit={handleSubmit} className="login-form">
+                    <h2 className="login-title">Login</h2>
+                    <label htmlFor="username" className="login-label">Username:</label>
+                    <input
+                        type="text"
+                        id="username"
+                        placeholder="Username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        className="login-input"
                     />
-                <label htmlFor="password">Password: </label>
-                <input 
-                    type="password"
-                    id="password"
-                    placeholder="password"
-                    value = {password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    <label htmlFor="password" className="login-label">Password:</label>
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        className="login-input"
                     />
-                <button type="submit">Login</button>
-
-            </form>
-        
+                    <button type="submit" className="login-button">Login</button>
+                </form>
+            </div>
         </div>
-    )
-
+    );
 }
 
 export default Login;
